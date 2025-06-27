@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cyberbullying Patrol 🛡️</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+  <style>
+    .crazy-name {
+      font-family: 'Bangers', cursive;
+      font-weight: normal;
+      font-size: 1.1em;
+      color: #fff;              /* White letters */
+      background-color: #000;   /* Black background */
+      padding: 2px 6px;         /* Small padding */
+      border-radius: 4px;       /* Slight rounding */
+    }
+  </style>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(145deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .container {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+      width: 90%;
+      max-width: 600px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #00ffe7;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #ccc;
+      margin-bottom: 30px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 150px;
+      border: none;
+      border-radius: 10px;
+      padding: 15px;
+      font-size: 1rem;
+      resize: none;
+      outline: none;
+      box-sizing: border-box;
+    }
+
+    button {
+      margin-top: 20px;
+      background-color: #00d2ff;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 8px;
+      color: #000;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s ease;
+      display: block;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #00b5d6;
+    }
+
+    .result {
+      margin-top: 25px;
+      padding: 15px;
+      font-weight: bold;
+      font-size: 1.2rem;
+      border-radius: 8px;
+    }
+
+    .bullying {
+      background-color: #ff4d4d;
+      color: white;
+    }
+
+    .non-bullying {
+      background-color: #28a745;
+      color: white;
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+
+    footer a {
+      color: #00ffe7;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Cyberbullying Patrol</h1>
+    <p>Your AI-powered Patroler against digital threats</p>
+
+    <form method="POST">
+      <textarea name="text" placeholder="Enter message to scan..." required></textarea>
+      <button type="submit">🔍 Scan</button>
+    </form>
+
+    {% if prediction is not none %}
+      <div class="result {% if prediction == 1 %}bullying{% else %}non-bullying{% endif %}">
+        {% if prediction == 1 %}
+          ⚠️ Bullying Detected!
+        {% else %}
+          ✅ Message is Safe.
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+
+  <footer>
+    © 2024 Cyberbullying Patrol | Powered by 
+    <a href="https://openai.com/chatgpt" target="_blank">ChatGPT</a> | 
+    Prompted by <span class="crazy-name">Prathamesh Ahire</span>
+  </footer>
+
+</body>
+</html>
